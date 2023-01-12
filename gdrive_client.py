@@ -13,7 +13,7 @@ with open(os.path.join(GITHUB_WORKSPACE, "config", "google-docs.yml"), "r", enco
 for habitat in ("water", "sediment"):
     url = config[habitat]
     
-    if not url.startswith("https://"):  # else url = NaN
+    if not url.startswith("https://"):  # url = NaN
         continue
 
     doc_id = url.split("/")[5]
