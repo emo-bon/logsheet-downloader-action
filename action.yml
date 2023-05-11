@@ -1,15 +1,5 @@
-name: 'emo-bon data management google drive downloader'
-description: 'download google drive spreadsheets from data management metadata'
-inputs:
-  x:
-    description: 'x'
-    required: true
-    default: 'x'
-outputs:
-  fx:
-    description: 'fx'
+name: 'logsheet-downloader-action'
+description: 'logsheet-downloader-action'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.x }}

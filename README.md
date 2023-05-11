@@ -1,21 +1,20 @@
-# emobon_dm_gdrive_downloader
+# logsheet-downloader-action
 
-To give an example, the following workflow file will download the google drive sheets, convert them to csv format and commit the changes if relevant.
+To give an example, the following workflow file will download the logsheets, convert them to csv format and commit the changes if relevant.
 
 ```
 on:
   push:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '0 0 1 * *'
 jobs:
-  emobon_job:
+  job:
     runs-on: ubuntu-latest
-    name: emobon dm gdrive downloader job
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: download
-        uses: emo-bon/emobon_dm_gdrive_downloader@master
-      - name: commit
+      - name: logsheet-downloader-action
+        uses: emo-bon/logsheet-downloader-action@master
+      - name: git-auto-commit-action
         uses: stefanzweifel/git-auto-commit-action@v4
 ```
