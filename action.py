@@ -24,7 +24,7 @@ for habitat in ("water", "sediment"):
         os.makedirs(path_xlsx)
 
     get_xlsx(os.path.join(path_xlsx, f"{doc_id}.xlsx"), doc_id)
-    xlsx = pd.read_excel(os.path.join(path_xlsx, f"{doc_id}.xlsx"), sheet_name=None)
+    xlsx = pd.read_excel(os.path.join(path_xlsx, f"{doc_id}.xlsx"), sheet_name=None, dtype=object, keep_default_na=False)
     path_csv = os.path.join(GITHUB_WORKSPACE, "logsheets")
     
     if not os.path.exists(path_csv):
