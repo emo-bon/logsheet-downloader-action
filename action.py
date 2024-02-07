@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import os
 import pandas as pd
 import shutil
 import uuid
@@ -23,18 +22,14 @@ for habitat in ("water", "sediment"):
     doc_id = url.split("/")[5]
     temp_folder_name = str(uuid.uuid1())  # uuid to avoid name collision
     path_xlsx = GITHUB_WORKSPACE / temp_folder_name
-    
-    if not os.path.exists(path_xlsx):
-        os.makedirs(path_xlsx)
+    path_xlsx.mkdir(parents=True, exist_ok=True)
 
     get_xlsx(path_xlsx / f"{doc_id}.xlsx", doc_id)
     xlsx = pd.read_excel(path_xlsx / f"{doc_id}.xlsx", sheet_name=None, dtype=object, keep_default_na=False)  # read without type sniffing
-    path_csv = GITHUB_WORKSPACE / "logsheets"
-    
-    if not os.path.exists(path_csv):
-        os.makedirs(path_csv)
+    path_csv = GITHUB_WORKSPACE / "logsheets" / "raw"
+    path_csv.mkdir(parents=True, exist_ok=True)
 
     for sheet in ("observatory", "sampling", "measured"):
-        xlsx[sheet].to_csv(path_csv / f'{habitat}_{sheet}_raw.csv', index=False)
+        xlsx[sheet].to_csv(path_csv / f'{habitat}_{sheet}.csv', index=False)
 
     shutil.rmtree(path_xlsx)
