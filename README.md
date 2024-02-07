@@ -5,8 +5,6 @@ To give an example, the following workflow file will download the logsheets, con
 ```
 on:
   push:
-  schedule:
-    - cron: '0 0 1 * *'
 jobs:
   job:
     runs-on: ubuntu-latest
