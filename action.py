@@ -13,7 +13,7 @@ ARMS_LOGSHEET_URL = os.getenv("ARMS_LOGSHEET_URL")
 
 
 if __name__ == "__main__":
-    for url in (WATER_LOGSHEET_URL, SEDIMENT_LOGSHEET_URL, ARMS_LOGSHEET_URL):
+    for habitat, url in {"water": WATER_LOGSHEET_URL, "sediment": SEDIMENT_LOGSHEET_URL, "arms": ARMS_LOGSHEET_URL}.items():
         if not url.startswith("http"):  # url = NaN
             continue
 
