@@ -13,8 +13,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: populate
+      - name: populate-action
         uses: emo-bon/populate-action@master
-      - name: git-auto-commit
+      - name: git-auto-commit-action
         uses: stefanzweifel/git-auto-commit-action@v4
 ```
