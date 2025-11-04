@@ -1,4 +1,6 @@
-# logsheet-downloader-action
+# populate-action
+
+Action to populate observatory crates with README and raw logsheets.
 
 To give an example, the following workflow file will download the logsheets, convert them to csv format and commit the changes if relevant.
 
@@ -11,8 +13,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: logsheet-downloader-action
-        uses: emo-bon/logsheet-downloader-action@master
-      - name: git-auto-commit-action
+      - name: populate
+        uses: emo-bon/populate-action@master
+      - name: git-auto-commit
         uses: stefanzweifel/git-auto-commit-action@v4
 ```
