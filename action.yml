@@ -1,5 +1,0 @@
-name: 'logsheet-downloader-action'
-description: 'logsheet-downloader-action'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
